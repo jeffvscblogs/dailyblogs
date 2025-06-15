@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css"> 
+    <title>My Personal Blog - Schedule</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html, body {
+        height: 100%;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+        color: #2d3748;
+      }
+
+      #container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      header {
+        background-color: #fff;
+        padding: 20px;
+        border-bottom: 1px solid #ccc;
+      }
+
+      .header-content h1 {
+        margin-bottom: 5px;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 20px;
+        padding: 10px 0 0;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: #333;
+      }
+
+      nav ul li a.active {
+        font-weight: bold;
+        color: #0077cc;
+      }
+
+      .main-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .schedule-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .view-options .view-btn {
+        padding: 6px 12px;
+        margin-left: 10px;
+        border: 1px solid #ccc;
+        background-color: #f5f5f5;
+        cursor: pointer;
+      }
+
+      .view-btn.active {
+        background-color: #0077cc;
+        color: #fff;
+      }
+
+      .schedule-section {
+        margin-bottom: 30px;
+      }
+
+      .schedule-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        background-color: #fff;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        margin-bottom: 10px;
+      }
+
+      .item-time {
+        font-weight: bold;
+        width: 120px;
+      }
+
+      .item-meta {
+        margin-top: 8px;
+        font-size: 12px;
+        color: #555;
+      }
+
+      .item-actions button {
+        margin-left: 5px;
+        background: #eee;
+        border: none;
+        padding: 4px 8px;
+        cursor: pointer;
+      }
+
+      footer {
+        background-color: #fff;
+        text-align: center;
+        padding: 15px;
+        font-size: 14px;
+        border-top: 1px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <div class="header-content">
+          <h1>My Personal Blog</h1>
+          <p class="tagline">Thoughts, Ideas, and Random Musings</p>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="schedule.html" class="active">Schedule</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="main-content">
+        <main class="content">
+          <div class="schedule-header">
+            <h2>Upcoming Events & To-Do Items</h2>
+            <div class="view-options">
+              <button class="view-btn active" onclick="setView('list')">List View</button>
+            </div>
+          </div>
+
+          <!-- Example Schedule Section -->
+          <div class="schedule-section">
+            <h3 class="section-title">This Month | June</h3>
+
+            <div class="schedule-item event" data-type="event">
+              <div class="item-time">6:30 - 13:00</div>
+              <div class="item-content">
+                <h4>Crunchy School</h4>
+                <p>All boring School, I am just visiting it cause of the principal.</p>
+                <div class="item-meta">
+                  <span class="item-type">Routine</span>
+                  <span class="item-priority">High</span>
+                </div>
+              </div>
+              <div class="item-actions">
+                <button onclick="markComplete(this)">✓</button>
+                <button onclick="editItem(this)">Edit</button>
+              </div>
+            </div>
+
+            <div class="schedule-item todo" data-type="todo">
+              <div class="item-time">17:00 - 19:00</div>
+              <div class="item-content">
+                <h4>Gym Session</h4>
+                <p>Complete writing and add images</p>
+                <div class="item-meta">
+                  <span class="item-type">To-Do</span>
+                  <span class="item-priority">Medium</span>
+                </div>
+              </div>
+              <div class="item-actions">
+                <button onclick="markComplete(this)">✓</button>
+                <button onclick="editItem(this)">Edit</button>
+              </div>
+            </div>
+
+            <div class="schedule-item reminder" data-type="reminder">
+              <div class="item-time">19:30 - 22:30</div>
+              <div class="item-content">
+                <h4>Homeworks</h4>
+                <p>I do nothing but sometimes I dont study.</p>
+                <div class="item-meta">
+                  <span class="item-type">Reminder</span>
+                  <span class="item-priority">Low</span>
+                </div>
+              </div>
+              <div class="item-actions">
+                <button onclick="markComplete(this)">✓</button>
+                <button onclick="editItem(this)">Edit</button>
+              </div>
+            </div>
+
+            <div class="schedule-item todo" data-type="todo">
+              <div class="item-time">Weekend</div>
+              <div class="item-content">
+                <h4>Routine</h4>
+                <p>- Gym at morning</p>
+                <p>- doing other stuffs</p>
+                <p>- ride with my bro</p>
+                <p>- study,sleep</p>
+                <div class="item-meta">
+                  <span class="item-type">Event</span>
+                  <span class="item-priority">Medium</span>
+                </div>
+              </div>
+              <div class="item-actions">
+                <button onclick="markComplete(this)">✓</button>
+                <button onclick="editItem(this)">Edit</button>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+
+      <footer>
+        <p>&copy; 2025 My Personal Blog. All rights reserved. | Powered by nostalgia and caffeine.</p>
+      </footer>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

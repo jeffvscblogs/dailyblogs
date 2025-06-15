@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <link rel="stylesheet" href="style.css"> 
+    <title>My Personal Blog - Home</title>
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <div class="header-content">
+          <h1>Daily life.</h1>
+          <p class="tagline">Thoughts, Ideas, and Random Musings</p>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="schedule1.html">Schedule</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="main-content">
+        <aside class="sidebar">
+          <div class="widget">
+            <h3>Search</h3>
+            <input type="text" id="search" placeholder="Search posts..." />
+            <button id="search-button">Go</button>
+          </div>
+          
+          <div class="widget">
+            <h3>Categories</h3>
+            <ul class="category-list">
+              <li><a href="#" onclick="filterByCategory('life')">Life</a> (1)</li>
+              <!--<li><a href="#" onclick="filterByCategory('personal')">Personal</a> (0)</li>-->
+              <!--<li><a href="#" onclick="filterByCategory('reviews')">Reviews</a> (0)</li>-->
+              <!--<li><a href="#" onclick="filterByCategory('tutorials')">Tutorials</a> (0)</li>-->
+            </ul>
+          </div>
+
+          <div class="widget">
+            <h3>Popular Tags</h3>
+            <div class="tag-cloud">
+              <span class="tag" onclick="filterByTag('javascript')">javascript</span>
+              <span class="tag" onclick="filterByTag('web-design')">web-design</span>
+              <span class="tag" onclick="filterByTag('life')">life</span>
+              <span class="tag" onclick="filterByTag('coding')">coding</span>
+              <span class="tag" onclick="filterByTag('tips')">tips</span>
+            </div>
+          </div>
+        </aside> 
+
+        <main class="content">
+          <div class="blog-posts" id="blog-posts">
+            <!-- Blog Post 1 -->
+            <article class="blog-post" data-category="technology" data-tags="javascript,coding">
+              <div class="post-header">
+                <h2><a href="blog-post-1.html">1. 15 june</a></h2>
+                <div class="post-meta">
+                  <div class="tags">
+                    <span class="tag">life</span>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="post-footer">
+                <a href="blog-post-1.html" class="read-more">Read More</a>
+              </div>
+            </article>
+
+            <!-- Blog Post 2 
+            <article class="blog-post" data-category="personal" data-tags="life,thoughts">
+              <div class="post-header">
+                <h2><a href="blog-post-2.html">Reflections on Digital Minimalism</a></h2>
+                <div class="post-meta">
+                  <span class="date">January 10, 2025</span>
+                  <span class="category">Personal</span>
+                  <div class="tags">
+                    <span class="tag">life</span>
+                    <span class="tag">thoughts</span>
+                  </div>
+                </div>
+              </div>
+              <div class="post-content">
+                <p>In our hyper-connected world, there's value in stepping back and embracing simplicity. Digital minimalism isn't just about having fewer apps on your phone; it's about intentional technology use...</p>
+              </div>
+              <div class="post-footer">
+                <a href="blog-post-2.html" class="read-more">Read More</a>
+              </div>
+            </article> -->
+
+            <!-- Blog Post 3 
+            <article class="blog-post" data-category="tutorials" data-tags="web-design,tips">
+              <div class="post-header">
+                <h2><a href="blog-post-3.html">CSS Grid vs Flexbox: A 2010s Perspective</a></h2>
+                <div class="post-meta">
+                  <span class="date">January 5, 2025</span>
+                  <span class="category">Tutorials</span>
+                  <div class="tags">
+                    <span class="tag">web-design</span>
+                    <span class="tag">tips</span>
+                  </div>
+                </div>
+              </div>
+              <div class="post-content">
+                <p>Before CSS Grid became mainstream, web developers relied heavily on floats and positioning. Let's explore how layout techniques have evolved and why sometimes the old ways still work best...</p>
+              </div>
+              <div class="post-footer">
+                <a href="blog-post-3.html" class="read-more">Read More</a>
+              </div>
+            </article> -->
+
+            <!-- Blog Post 4 
+            <article class="blog-post" data-category="reviews" data-tags="technology,reviews">
+              <div class="post-header">
+                <h2><a href="blog-post-4.html">Remembering Internet Explorer 9</a></h2>
+                <div class="post-meta">
+                  <span class="date">December 28, 2024</span>
+                  <span class="category">Reviews</span>
+                  <div class="tags">
+                    <span class="tag">technology</span>
+                    <span class="tag">reviews</span>
+                  </div>
+                </div>
+              </div>
+              <div class="post-content">
+                <p>Love it or hate it, Internet Explorer 9 was a significant step forward for Microsoft's browser. It introduced hardware acceleration and better standards support. Let's look back at what made it special...</p>
+              </div>
+              <div class="post-footer">
+                <a href="blog-post-4.html" class="read-more">Read More</a>
+              </div>
+            </article> -->
+
+            <!-- Blog Post 5 
+            <article class="blog-post" data-category="technology" data-tags="javascript,tutorials">
+              <div class="post-header">
+                <h2><a href="blog-post-5.html">jQuery vs Vanilla JavaScript</a></h2>
+                <div class="post-meta">
+                  <span class="date">December 20, 2024</span>
+                  <span class="category">Technology</span>
+                  <div class="tags">
+                    <span class="tag">javascript</span>
+                    <span class="tag">tutorials</span>
+                  </div>
+                </div>
+              </div>
+              <div class="post-content">
+                <p>jQuery was the king of JavaScript libraries in the early 2010s. But with modern browsers supporting more native APIs, do we still need it? Let's compare approaches and see when each makes sense...</p>
+              </div>
+              <div class="post-footer">
+                <a href="blog-post-5.html" class="read-more">Read More</a>
+              </div>
+            </article> -->
+
+            <!-- Blog Post 6 
+            <article class="blog-post" data-category="personal" data-tags="life,productivity">
+              <div class="post-header">
+                <h2><a href="blog-post-6.html">My Morning Routine for Better Productivity</a></h2>
+                <div class="post-meta">
+                  <span class="date">December 15, 2024</span>
+                  <span class="category">Personal</span>
+                  <div class="tags">
+                    <span class="tag">life</span>
+                    <span class="tag">productivity</span>
+                  </div>
+                </div>
+              </div>
+              <div class="post-content">
+                <p>After years of experimenting with different morning routines, I've found a system that works. It's not about waking up at 5 AM or drinking green smoothies. It's about consistency and intention...</p>
+              </div>
+              <div class="post-footer">
+                <a href="blog-post-6.html" class="read-more">Read More</a>
+              </div>
+            </article> -->
+
+            <!-- Blog Post 7 
+            <article class="blog-post" data-category="tutorials" data-tags="web-design,css">
+              <div class="post-header">
+                <h2><a href="blog-post-7.html">Creating Hover Effects the Old-School Way</a></h2>
+                <div class="post-meta">
+                  <span class="date">December 10, 2024</span>
+                  <span class="category">Tutorials</span>
+                  <div class="tags">
+                    <span class="tag">web-design</span>
+                    <span class="tag">css</span>
+                  </div>
+                </div>
+              </div>
+              <div class="post-content">
+                <p>Before CSS transitions were widely supported, creating smooth hover effects required creativity. Let's explore techniques that defined early 2010s web interaction design and why they still matter...</p>
+              </div>
+              <div class="post-footer">
+                <a href="blog-post-7.html" class="read-more">Read More</a>
+              </div>
+            </article> -->
+
+            <!-- Blog Post 8 
+            <article class="blog-post" data-category="technology" data-tags="mobile,responsive">
+              <div class="post-header">
+                <h2><a href="blog-post-8.html">The Rise of Mobile-First Design</a></h2>
+                <div class="post-meta">
+                  <span class="date">December 5, 2024</span>
+                  <span class="category">Technology</span>
+                  <div class="tags">
+                    <span class="tag">mobile</span>
+                    <span class="tag">responsive</span>
+                  </div>
+                </div>
+              </div>
+              <div class="post-footer">
+                <a href="blog-post-8.html" class="read-more">Read More</a>
+              </div>
+            </article> -->
+          </div>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+          <div class="pagination">
+            <button class="prev-page" onclick="prevPage()">« Previous</button>
+            <span class="page-info">Page 1 of 1</span>
+            <button class="next-page" onclick="nextPage()">Next »</button>
+          </div>
+        </main>
+      </div>
+
+      <footer>
+        <p>&copy; 2025 My Personal Blog. All rights reserved. | Powered by nostalgia and caffeine.</p>
+      </footer>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

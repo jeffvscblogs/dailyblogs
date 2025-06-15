@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css"> 
+    <title>My Personal Blog - Schedule</title>
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <div class="header-content">
+          <h1>My Personal Blog</h1>
+          <p class="tagline">Thoughts, Ideas, and Random Musings</p>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="schedule.html" class="active">Schedule</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="main-content">
+        <aside class="sidebar">
+          <div class="widget">
+            <h3>Quick Add</h3>
+            <form id="quick-add-form">
+              <input type="text" id="new-task" placeholder="New task..." />
+              <select id="task-type">
+                <option value="event">Event</option>
+                <option value="todo">To-Do</option>
+                <option value="reminder">Reminder</option>
+              </select>
+              <button type="submit">Add</button>
+            </form>
+          </div>
+          
+          <div class="widget">
+            <h3>Calendar</h3>
+            <div class="mini-calendar">
+              <div class="calendar-header">
+                <button onclick="prevMonth()">&lt;</button>
+                <span id="current-month">January 2025</span>
+                <button onclick="nextMonth()">&gt;</button>
+              </div>
+              <div class="calendar-grid">
+                <div class="day-header">S</div>
+                <div class="day-header">M</div>
+                <div class="day-header">T</div>
+                <div class="day-header">W</div>
+                <div class="day-header">T</div>
+                <div class="day-header">F</div>
+                <div class="day-header">S</div>
+                
+                <div class="day"></div>
+                <div class="day"></div>
+                <div class="day"></div>
+                <div class="day">1</div>
+                <div class="day">2</div>
+                <div class="day">3</div>
+                <div class="day">4</div>
+                <div class="day">5</div>
+                <div class="day">6</div>
+                <div class="day">7</div>
+                <div class="day">8</div>
+                <div class="day">9</div>
+                <div class="day">10</div>
+                <div class="day">11</div>
+                <div class="day">12</div>
+                <div class="day">13</div>
+                <div class="day">14</div>
+                <div class="day current-day">15</div>
+                <div class="day">16</div>
+                <div class="day has-event">17</div>
+                <div class="day">18</div>
+                <div class="day">19</div>
+                <div class="day has-event">20</div>
+                <div class="day">21</div>
+                <div class="day">22</div>
+                <div class="day">23</div>
+                <div class="day">24</div>
+                <div class="day has-event">25</div>
+                <div class="day">26</div>
+                <div class="day">27</div>
+                <div class="day">28</div>
+                <div class="day">29</div>
+                <div class="day">30</div>
+                <div class="day">31</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="widget">
+            <h3>Filter</h3>
+            <div class="filter-options">
+              <label><input type="checkbox" checked onclick="toggleFilter('event')"> Events</label>
+              <label><input type="checkbox" checked onclick="toggleFilter('todo')"> To-Do Items</label>
+              <label><input type="checkbox" checked onclick="toggleFilter('reminder')"> Reminders</label>
+            </div>
+          </div>
+        </aside>
+
+        <main class="content">
+          <div class="schedule-header">
+            <h2>Upcoming Events & To-Do Items</h2>
+            <div class="view-options">
+              <button class="view-btn active" onclick="setView('list')">List View</button>
+              <button class="view-btn" onclick="setView('calendar')">Calendar View</button>
+            </div>
+          </div>
+
+          <div id="schedule-content" class="schedule-list">
+            <!-- Today's Events -->
+            <div class="schedule-section">
+              <h3 class="section-title">Today - January 15, 2025</h3>
+              
+              <div class="schedule-item event" data-type="event">
+                <div class="item-time">9:00 AM</div>
+                <div class="item-content">
+                  <h4>Team Standup Meeting</h4>
+                  <p>Weekly team sync-up via video call</p>
+                  <div class="item-meta">
+                    <span class="item-type">Event</span>
+                    <span class="item-priority">High</span>
+                  </div>
+                </div>
+                <div class="item-actions">
+                  <button onclick="markComplete(this)">✓</button>
+                  <button onclick="editItem(this)">Edit</button>
+                </div>
+              </div>
+
+              <div class="schedule-item todo" data-type="todo">
+                <div class="item-time">All Day</div>
+                <div class="item-content">
+                  <h4>Finish blog post about retro web design</h4>
+                  <p>Complete writing and add images</p>
+                  <div class="item-meta">
+                    <span class="item-type">To-Do</span>
+                    <span class="item-priority">Medium</span>
+                  </div>
+                </div>
+                <div class="item-actions">
+                  <button onclick="markComplete(this)">✓</button>
+                  <button onclick="editItem(this)">Edit</button>
+                </div>
+              </div>
+
+              <div class="schedule-item reminder" data-type="reminder">
+                <div class="item-time">3:00 PM</div>
+                <div class="item-content">
+                  <h4>Call dentist for appointment</h4>
+                  <p>Schedule cleaning for next month</p>
+                  <div class="item-meta">
+                    <span class="item-type">Reminder</span>
+                    <span class="item-priority">Low</span>
+                  </div>
+                </div>
+                <div class="item-actions">
+                  <button onclick="markComplete(this)">✓</button>
+                  <button onclick="editItem(this)">Edit</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tomorrow's Events -->
+            <div class="schedule-section">
+              <h3 class="section-title">Tomorrow - January 16, 2025</h3>
+              
+              <div class="schedule-item event" data-type="event">
+                <div class="item-time">10:30 AM</div>
+                <div class="item-content">
+                  <h4>Coffee with Sarah</h4>
+                  <p>Catch up at the local café</p>
+                  <div class="item-meta">
+                    <span class="item-type">Event</span>
+                    <span class="item-priority">Medium</span>
+                  </div>
+                </div>
+                <div class="item-actions">
+                  <button onclick="markComplete(this)">✓</button>
+                  <button onclick="editItem(this)">Edit</button>
+                </div>
+              </div>
+
+              <div class="schedule-item todo" data-type="todo">
+                <div class="item-time">All Day</div>
+                <div class="item-content">
+                  <h4>Update portfolio website</h4>
+                  <p>Add recent projects and refresh design</p>
+                  <div class="item-meta">
+                    <span class="item-type">To-Do</span>
+                    <span class="item-priority">High</span>
+                  </div>
+                </div>
+                <div class="item-actions">
+                  <button onclick="markComplete(this)">✓</button>
+                  <button onclick="editItem(this)">Edit</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- This Week -->
+            <div class="schedule-section">
+              <h3 class="section-title">This Week</h3>
+              
+              <div class="schedule-item event" data-type="event">
+                <div class="item-time">Friday, 7:00 PM</div>
+                <div class="item-content">
+                  <h4>Movie Night with Friends</h4>
+                  <p>Watching classic 2010s films</p>
+                  <div class="item-meta">
+                    <span class="item-type">Event</span>
+                    <span class="item-priority">Low</span>
+                  </div>
+                </div>
+                <div class="item-actions">
+                  <button onclick="markComplete(this)">✓</button>
+                  <button onclick="editItem(this)">Edit</button>
+                </div>
+              </div>
+
+              <div class="schedule-item todo" data-type="todo">
+                <div class="item-time">By Friday</div>
+                <div class="item-content">
+                  <h4>Research new blog topics</h4>
+                  <p>Find 5 interesting subjects for next month</p>
+                  <div class="item-meta">
+                    <span class="item-type">To-Do</span>
+                    <span class="item-priority">Medium</span>
+                  </div>
+                </div>
+                <div class="item-actions">
+                  <button onclick="markComplete(this)">✓</button>
+                  <button onclick="editItem(this)">Edit</button>
+                </div>
+              </div>
+
+              <div class="schedule-item reminder" data-type="reminder">
+                <div class="item-time">Saturday, 2:00 PM</div>
+                <div class="item-content">
+                  <h4>Grocery shopping</h4>
+                  <p>Don't forget organic vegetables and coffee</p>
+                  <div class="item-meta">
+                    <span class="item-type">Reminder</span>
+                    <span class="item-priority">Medium</span>
+                  </div>
+                </div>
+                <div class="item-actions">
+                  <button onclick="markComplete(this)">✓</button>
+                  <button onclick="editItem(this)">Edit</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Next Week -->
+            <div class="schedule-section">
+              <h3 class="section-title">Next Week</h3>
+              
+              <div class="schedule-item event" data-type="event">
+                <div class="item-time">Monday, 1:00 PM</div>
+                <div class="item-content">
+                  <h4>Doctor's Appointment</h4>
+                  <p>Annual check-up</p>
+                  <div class="item-meta">
+                    <span class="item-type">Event</span>
+                    <span class="item-priority">High</span>
+                  </div>
+                </div>
+                <div class="item-actions">
+                  <button onclick="markComplete(this)">✓</button>
+                  <button onclick="editItem(this)">Edit</button>
+                </div>
+              </div>
+
+              <div class="schedule-item todo" data-type="todo">
+                <div class="item-time">By Wednesday</div>
+                <div class="item-content">
+                  <h4>Plan February blog content</h4>
+                  <p>Create editorial calendar for next month</p>
+                  <div class="item-meta">
+                    <span class="item-type">To-Do</span>
+                    <span class="item-priority">Medium</span>
+                  </div>
+                </div>
+                <div class="item-actions">
+                  <button onclick="markComplete(this)">✓</button>
+                  <button onclick="editItem(this)">Edit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="completed-section" id="completed-section" style="display: none;">
+            <h3 class="section-title">Completed Items</h3>
+            <div id="completed-items"></div>
+          </div>
+        </main>
+      </div>
+
+      <footer>
+        <p>&copy; 2025 My Personal Blog. All rights reserved. | Powered by nostalgia and caffeine.</p>
+      </footer>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

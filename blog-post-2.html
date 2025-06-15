@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css"> 
+    <title>Building a Retro Website in 2025 - My Personal Blog</title>
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <div class="header-content">
+          <h1>My Personal Blog</h1>
+          <p class="tagline">Thoughts, Ideas, and Random Musings</p>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="main-content">
+        <aside class="sidebar">
+          <div class="widget">
+            <h3>Post Info</h3>
+            <div class="post-info">
+              <p><strong>Published:</strong> January 15, 2025</p>
+              <p><strong>Category:</strong> Technology</p>
+              <p><strong>Tags:</strong> javascript, coding</p>
+              <p><strong>Reading Time:</strong> 5 minutes</p>
+            </div>
+          </div>
+
+          <div class="widget">
+            <h3>Share This Post</h3>
+            <div class="share-buttons">
+              <button onclick="sharePost('twitter')">Twitter</button>
+              <button onclick="sharePost('facebook')">Facebook</button>
+              <button onclick="sharePost('email')">Email</button>
+            </div>
+          </div>
+
+          <div class="widget">
+            <h3>Related Posts</h3>
+            <ul class="related-posts">
+              <li><a href="blog-post-3.html">CSS Grid vs Flexbox: A 2010s Perspective</a></li>
+              <li><a href="blog-post-5.html">jQuery vs Vanilla JavaScript</a></li>
+              <li><a href="blog-post-7.html">Creating Hover Effects the Old-School Way</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <main class="content">
+          <article class="full-post">
+            <header class="post-header">
+              <h1>Building a Retro Website in 2025</h1>
+              <div class="post-meta">
+                <span class="date">January 15, 2025</span>
+                <span class="category">Technology</span>
+                <div class="tags">
+                  <span class="tag">javascript</span>
+                  <span class="tag">coding</span>
+                </div>
+              </div>
+            </header>
+
+            <div class="post-content">
+              <p>There's something magical about the early 2010s web design aesthetic. The clean lines, the simple layouts, and the focus on content over flashy animations. In this post, I'll walk you through creating a website that captures that nostalgic feeling while still being functional in 2025.</p>
+
+              <h2>Why Go Retro?</h2>
+              <p>In an era of complex frameworks and over-engineered solutions, there's something refreshing about returning to basics. The early 2010s represented a sweet spot in web development:</p>
+              
+              <ul>
+                <li><strong>Simplicity over complexity</strong> - Sites focused on content and usability</li>
+                <li><strong>Clear visual hierarchy</strong> - Typography and spacing were paramount</li>
+                <li><strong>Semantic HTML</strong> - Structure meant something</li>
+                <li><strong>CSS that made sense</strong> - Before preprocessors complicated everything</li>
+                <li><strong>Progressive enhancement</strong> - Sites worked without JavaScript</li>
+              </ul>
+
+              <h2>The Color Palette</h2>
+              <p>The early 2010s had a distinctive color palette. Think Facebook blue (#4267B2), Twitter's original blue (#1DA1F2), and Google's early Material Design grays. These colors weren't chosen by accident - they conveyed trust and professionalism while remaining approachable.</p>
+
+              <p>For this project, I chose:</p>
+              <ul>
+                <li><strong>Primary Blue:</strong> #4682B4 (Steel Blue)</li>
+                <li><strong>Secondary Gray:</strong> #708090 (Slate Gray)</li>
+                <li><strong>Light Accent:</strong> #B0C4DE (Light Steel Blue)</li>
+                <li><strong>Text:</strong> #333333 (Dark Gray)</li>
+                <li><strong>Background:</strong> #F5F5F5 (White Smoke)</li>
+              </ul>
+
+              <h2>Typography Choices</h2>
+              <p>Font choices in the early 2010s were limited but effective. Arial and Helvetica dominated, with Georgia for serif needs. These fonts were chosen for readability across different screen resolutions and operating systems.</p>
+
+              <p>Today, we can use web fonts, but for authenticity, I stuck with the classics:</p>
+              <pre><code>font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;</code></pre>
+
+              <h2>Layout Principles</h2>
+              <p>The layout philosophy of the early 2010s was straightforward:</p>
+              
+              <ol>
+                <li><strong>Fixed-width containers</strong> - Usually around 960px wide</li>
+                <li><strong>Clear sidebars</strong> - Often on the right for widgets and navigation</li>
+                <li><strong>Generous whitespace</strong> - Content had room to breathe</li>
+                <li><strong>Consistent spacing</strong> - Usually multiples of 5 or 10 pixels</li>
+                <li><strong>Hierarchical headings</strong> - Clear H1, H2, H3 structure</li>
+              </ol>
+
+              <h2>Interactive Elements</h2>
+              <p>Buttons and interactive elements had a distinctive look. They were often:</p>
+              <ul>
+                <li>Beveled with subtle gradients</li>
+                <li>Had clear hover states</li>
+                <li>Used subtle shadows for depth</li>
+                <li>Maintained consistent sizing and spacing</li>
+              </ul>
+
+              <p>Here's a classic button style from the era:</p>
+              <pre><code>button {
+  background: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: linear-gradient(to bottom, #f0f0f0 0%, #d5d5d5 100%);
+  border-color: #aaaaaa;
+}</code></pre>
+
+              <h2>JavaScript Approach</h2>
+              <p>JavaScript in the early 2010s was primarily jQuery. While we could use modern JavaScript, maintaining the spirit means:</p>
+              <ul>
+                <li>Simple DOM manipulation</li>
+                <li>Progressive enhancement</li>
+                <li>Graceful degradation</li>
+                <li>Minimal dependencies</li>
+              </ul>
+
+              <h2>Modern Touches</h2>
+              <p>While staying true to the aesthetic, we can incorporate modern best practices:</p>
+              <ul>
+                <li><strong>Responsive design</strong> - Making it work on mobile</li>
+                <li><strong>Semantic HTML5</strong> - Using proper elements</li>
+                <li><strong>Accessibility</strong> - ARIA labels and keyboard navigation</li>
+                <li><strong>Performance</strong> - Optimized images and CSS</li>
+              </ul>
+
+              <h2>Conclusion</h2>
+              <p>Building a retro website in 2025 is both a creative exercise and a reminder of web design principles that still matter. The focus on content, clear typography, and user experience transcends trends.</p>
+
+              <p>The early 2010s aesthetic isn't just nostalgia - it's a return to web design fundamentals that prioritized users over technology. In our current era of complex frameworks and over-engineered solutions, there's wisdom in this simplicity.</p>
+
+              <p>Sometimes, the old ways are the best ways. Not because they're old, but because they solved real problems with elegant solutions that have stood the test of time.</p>
+            </div>
+
+            <footer class="post-footer">
+              <div class="post-navigation">
+                <a href="blog-post-2.html" class="prev-post">← Previous: Reflections on Digital Minimalism</a>
+                <a href="index.html" class="back-to-blog">Back to Blog</a>
+                <a href="blog-post-3.html" class="next-post">Next: CSS Grid vs Flexbox →</a>
+              </div>
+            </footer>
+          </article>
+        </main>
+      </div>
+
+      <footer>
+        <p>&copy; 2025 My Personal Blog. All rights reserved. | Powered by nostalgia and caffeine.</p>
+      </footer>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
